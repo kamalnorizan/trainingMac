@@ -16,8 +16,8 @@ class CreateCertsTable extends Migration
         Schema::create('certs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('cert_num', 20);
-            $table->string('nama_ibu', 200)->nullable();
-            $table->string('nama_bapa', 200)->nullable();
+            $table->string('name', 200);
+            $table->date('date_birth');
             $table->string('ic_ibu', 15)->nullable();
             $table->string('ic_bapa', 15)->nullable();
             $table->foreign('ic_ibu')->references('ic_number')->on('users')->onDelete('cascade');

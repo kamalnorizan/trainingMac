@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cert extends Model
 {
-    public $timestamps = true;
+   public $timestamps = true;
 
-    protected $table = 'certs';
+   protected $table = 'certs';
 
-    protected $primaryKey = 'id';
+   protected $primaryKey = 'id';
 
-    public $incrementing = true;
+   public $incrementing = true;
 
-    protected $guarded = ['id'];
+   protected $guarded = ['id'];
+
+   
 }
