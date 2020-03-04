@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+DB::listen(function($event)
+{
+    dump($event->sql);
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +22,9 @@ Route::get('/', function () {
 Route::get('/hello', function () {
     return view('latihan.index');
 });
+
+Route::resource('/cert', 'CertController');
+Route::resource('/rcert', 'Child2Controller');
 
 Route::get('/hellocontroller/{name}', 'LatihanController@index');
 

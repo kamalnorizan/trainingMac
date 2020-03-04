@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Cert;
 use Illuminate\Http\Request;
-
-class CertController extends Controller
+use App\Cert;
+class Child2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class CertController extends Controller
      */
     public function index()
     {
-        $certs=Cert::orderBy('name','asc')->paginate(10);
-        return view('cert.index',compact('certs'));
+        //
     }
 
     /**
@@ -26,7 +24,6 @@ class CertController extends Controller
     public function create()
     {
         //
-        dd('ini create');
     }
 
     /**
@@ -43,22 +40,23 @@ class CertController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cert  $cert
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Cert $cert)
+    public function show($id)
     {
         //
+        $cert = Cert::find($id);
         dd($cert);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cert  $cert
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cert $cert)
+    public function edit($id)
     {
         //
     }
@@ -67,10 +65,10 @@ class CertController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cert  $cert
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cert $cert)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -78,10 +76,10 @@ class CertController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cert  $cert
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cert $cert)
+    public function destroy($id)
     {
         //
     }
