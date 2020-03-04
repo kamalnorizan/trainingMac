@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Cert;
+use App\User;
+use DB;
 use Illuminate\Http\Request;
 
 class CertController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +32,10 @@ class CertController extends Controller
     public function create()
     {
         //
-        dd('ini create');
+        $icPemohon = User::select(DB::raw("CONCAT(ic_number, '-', name) as title"),'ic_number')
+                    ->pluck('title','ic_number');
+
+        return view('cert.create',compact('icPemohon'));
     }
 
     /**
