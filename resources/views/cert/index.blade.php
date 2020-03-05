@@ -35,7 +35,7 @@
                                 {{$cert->ic_bapa}}
                             </td>
                             <td>
-
+                            <a href="/cert/{{$cert->id}}/edit" class="btn btn-info btn-sm">Kemaskini</a>
                             </td>
                         </tr>
                         @endforeach

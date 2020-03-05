@@ -71,6 +71,7 @@ class CertController extends Controller
     public function edit(Cert $cert)
     {
         //
+        return view('cert.edit',compact('cert'));
     }
 
     /**
