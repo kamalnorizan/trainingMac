@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     {!! Form::open(['method' => 'POST', 'route' => 'cert.store']) !!}
-
+                        @csrf
                         @include('cert._form')
                         <div class="form-group{{ $errors->has('ic_bapa') ? ' has-error' : '' }}">
                             {!! Form::label('ic_bapa', 'IC Bapa') !!}
