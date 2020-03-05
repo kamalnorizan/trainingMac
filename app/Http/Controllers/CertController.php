@@ -20,7 +20,7 @@ class CertController extends Controller
      */
     public function index()
     {
-        $certs=Cert::orderBy('name','asc')->paginate(10);
+        $certs=Cert::latest()->paginate(10);
         return view('cert.index',compact('certs'));
     }
 
@@ -46,7 +46,8 @@ class CertController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cert::create($request->all());
+        return redirect('/cert');
     }
 
     /**
