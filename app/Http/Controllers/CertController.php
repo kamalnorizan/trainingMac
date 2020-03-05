@@ -46,7 +46,19 @@ class CertController extends Controller
      */
     public function store(Request $request)
     {
-        Cert::create($request->all());
+        $cert = Cert::create($request->all());
+        // $cert = new Cert();
+        // $cert->cert_num = $request->cert_num;
+        // $cert->name = $request->name;
+        // $cert->ic_ibu = $request->ic_ibu;
+        // $cert->ic_bapa = $request->ic_bap;
+        // $cert->date_birth = $request->date_birth;
+        // $cert->save();
+
+        $tboa = new Tboa();
+        $tboa->cert_id = $cert->id;
+
+        flash('You have successfully insert the record. Cert number is '.$cert->id)->success()->important();
         return redirect('/cert');
     }
 
@@ -71,6 +83,8 @@ class CertController extends Controller
     public function edit(Cert $cert)
     {
         //
+        // $cert = Cert::find(decrypt($cert));
+
         return view('cert.edit',compact('cert'));
     }
 
@@ -83,7 +97,9 @@ class CertController extends Controller
      */
     public function update(Request $request, Cert $cert)
     {
-        //
+        $cert->update($request->all());
+        flash('You have successfully update the record.')->success()->important();
+        return redirect('/cert');
     }
 
     /**
@@ -94,6 +110,8 @@ class CertController extends Controller
      */
     public function destroy(Cert $cert)
     {
-        //
+        $cert->delete();
+        flash('Record deleted successfully.')->success()->important();
+        return back();
     }
 }

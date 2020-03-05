@@ -35,7 +35,10 @@
                                 {{$cert->ic_bapa}}
                             </td>
                             <td>
-                            <a href="/cert/{{$cert->id}}/edit" class="btn btn-info btn-sm">Kemaskini</a>
+                                {!! Form::open(['method' => 'DELETE', 'route' => ['cert.destroy',$cert->id], 'onsubmit'=>'return confirm("Are you sure?")']) !!}
+                                    <a href="/cert/{{$cert->id}}/edit" class="btn btn-info btn-sm">Kemaskini</a>
+                                        {!! Form::submit("Delete", ['class' => 'btn btn-danger btn-sm']) !!}
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                         @endforeach

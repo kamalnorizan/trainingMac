@@ -13,7 +13,7 @@
                         @include('cert._form')
                         <div class="form-group{{ $errors->has('ic_bapa') ? ' has-error' : '' }}">
                             {!! Form::label('ic_bapa', 'IC Bapa') !!}
-                            {!! Form::select('ic_bapa',$icPemohon, null, ['id' => 'ic_bapa', 'class' => 'form-control', 'required' => 'required']) !!}
+                            {!! Form::select('ic_bap',$icPemohon, null, ['id' => 'ic_bapa', 'class' => 'form-control', 'required' => 'required']) !!}
                             <small class="text-danger">{{ $errors->first('ic_bapa') }}</small>
                         </div>
                         <div class="form-group{{ $errors->has('ic_ibu') ? ' has-error' : '' }}">
