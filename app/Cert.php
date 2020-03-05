@@ -16,5 +16,18 @@ class Cert extends Model
 
    protected $guarded = ['id'];
 
-   
+   public function childOfFather()
+   {
+       return $this->belongsTo('App\User', 'ic_bapa', 'ic_number');
+   }
+
+   public function childOfMother()
+   {
+       return $this->belongsTo('App\User', 'ic_ibu', 'ic_number');
+   }
+
+   public function tboas()
+   {
+       return $this->hasMany('App\Tboa', 'cert_id', 'id');
+   }
 }

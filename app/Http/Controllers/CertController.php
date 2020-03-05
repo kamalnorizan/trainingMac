@@ -55,9 +55,6 @@ class CertController extends Controller
         // $cert->date_birth = $request->date_birth;
         // $cert->save();
 
-        $tboa = new Tboa();
-        $tboa->cert_id = $cert->id;
-
         flash('You have successfully insert the record. Cert number is '.$cert->id)->success()->important();
         return redirect('/cert');
     }

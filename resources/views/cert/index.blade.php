@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Certificates <a href="/cert/create" class="btn btn-primary btn-sm float-right">Tambah</a></div>
 
@@ -29,10 +29,13 @@
                                 {{$cert->name}}
                             </td>
                             <td>
-                                {{$cert->ic_ibu}}
+                                {{$cert->childOfMother->name}} <br>
+                                @foreach ($cert->childOfMother->motherOf as $child)
+                                    - {{$child->name}} bin/binti {{$child->childOfFather->name}} <br>
+                                @endforeach
                             </td>
                             <td>
-                                {{$cert->ic_bapa}}
+                                {{$cert->childOfFather->name}}
                             </td>
                             <td>
                                 {!! Form::open(['method' => 'DELETE', 'route' => ['cert.destroy',$cert->id], 'onsubmit'=>'return confirm("Are you sure?")']) !!}

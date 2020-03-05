@@ -36,4 +36,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function motherOf()
+    {
+        return $this->hasMany('App\Cert', 'ic_ibu', 'ic_number');
+    }
+
+    public function fatherOf()
+    {
+        return $this->hasMany('App\Cert', 'ic_bapa', 'ic_number');
+    }
+
+    public function tboas()
+    {
+        return $this->hasMany('App\Tboa', 'user_id', 'id');
+    }
+
 }
