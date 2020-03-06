@@ -1,0 +1,15 @@
+1) composer update
+2) open .env.example > save as > .env
+3) set database
+4) php artisan key:generate
+5) stop laragon > start laragon
+6) gitoslr.test
+
+Database
+1) copy value of 2020_03_03_065944_create_certs_table
+2) rename file database > migration > create_certs_table
+3) replace dengan nama 2020_03_03_065944_create_certs_table
+4) php artisan migrate:status
+5) php artisan migrate
+
+6) gitoslr.test
