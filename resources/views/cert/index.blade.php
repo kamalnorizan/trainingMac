@@ -5,7 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Certificates <a href="/cert/create" class="btn btn-primary btn-sm float-right">Tambah</a></div>
+                <div class="card-header">Certificates <a href="/cert/create"
+                        class="btn btn-primary btn-sm float-right">Tambah</a></div>
 
                 <div class="card-body">
                     <table class="table">
@@ -31,22 +32,23 @@
                             <td>
                                 {{$cert->childOfMother->name}} <br>
                                 @foreach ($cert->childOfMother->motherOf as $child)
-                                    - {{$child->name}} bin/binti {{$child->childOfFather->name}} <br>
+                                - {{$child->name}} bin/binti {{$child->childOfFather->name}} <br>
                                 @endforeach
                             </td>
                             <td>
                                 {{$cert->childOfFather->name}}
                             </td>
                             <td>
-                                {!! Form::open(['method' => 'DELETE', 'route' => ['cert.destroy',$cert->id], 'onsubmit'=>'return confirm("Are you sure?")']) !!}
-                                    <a href="/cert/{{$cert->id}}/edit" class="btn btn-info btn-sm">Kemaskini</a>
-                                        {!! Form::submit("Delete", ['class' => 'btn btn-danger btn-sm']) !!}
+                                {!! Form::open(['method' => 'DELETE', 'route' => ['cert.destroy',$cert->id],
+                                'onsubmit'=>'return confirm("Are you sure?")']) !!}
+                                <a href="/cert/{{$cert->id}}/edit" class="btn btn-info btn-sm">Kemaskini</a>
+                                {!! Form::submit("Delete", ['class' => 'btn btn-danger btn-sm']) !!}
                                 {!! Form::close() !!}
                             </td>
                         </tr>
                         @endforeach
                     </table>
-                    {{ $certs->links() }}
+                    {{-- {{ $certs->links() }} --}}
                 </div>
             </div>
         </div>

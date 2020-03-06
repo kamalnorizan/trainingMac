@@ -20,7 +20,7 @@ class CertController extends Controller
      */
     public function index()
     {
-        $certs=Cert::latest()->paginate(10);
+        $certs=Cert::with('childOfMother.motherOf.childOfFather','childOfFather.fatherOf')->latest()->get();
         return view('cert.index',compact('certs'));
     }
 

@@ -24,6 +24,7 @@ Route::get('/hello', function () {
 });
 
 Route::resource('/cert', 'CertController');
+Route::resource('/tboa', 'TboaController');
 Route::resource('/rcert', 'Child2Controller');
 
 Route::get('/hellocontroller/{name}', 'LatihanController@index');

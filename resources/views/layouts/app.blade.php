@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('cert.index') }}">Certs</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tboa.index') }}">Online Application</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
