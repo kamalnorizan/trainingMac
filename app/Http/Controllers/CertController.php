@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cert;
 use App\User;
 use DB;
+use Auth;
 use Illuminate\Http\Request;
 
 class CertController extends Controller
@@ -20,6 +21,7 @@ class CertController extends Controller
      */
     public function index()
     {
+        Auth::user()->assignRole('admin');
         $certs=Cert::with('childOfMother.motherOf.childOfFather','childOfFather.fatherOf')->latest()->get();
         return view('cert.index',compact('certs'));
     }

@@ -34,14 +34,19 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @auth
+                        @role('admin')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">Home</a>
                         </li>
+                        @endrole
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('cert.index') }}">Certs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('tboa.index') }}">Online Application</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user">Pengurusan Pengguna</a>
                         </li>
                         @endauth
                     </ul>
