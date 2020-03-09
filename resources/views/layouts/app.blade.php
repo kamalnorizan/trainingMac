@@ -46,7 +46,7 @@
                             <a class="nav-link" href="{{ route('tboa.index') }}">Online Application</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/user">Pengurusan Pengguna</a>
+                            <a class="nav-link" href="{{ route('user.index') }}">Pengurusan Pengguna</a>
                         </li>
                         @endauth
                     </ul>
@@ -96,5 +96,8 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    @yield('script')
 </body>
 </html>
